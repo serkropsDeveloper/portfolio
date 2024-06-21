@@ -13,4 +13,11 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: '@import "./src/styles/tailwind.css";',
+      },
+    },
+  },
 });

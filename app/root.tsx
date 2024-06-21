@@ -4,10 +4,24 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
-import "./tailwind.css";
+import { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { client } from "~/prismic-configuration";
+import stylesheet from "~/tailwind.css?url";
+import Header from "./components/Header";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
+
+export const loader: LoaderFunction = async () => {
+  const response = await client.getByType("menu");
+  return json({ data: response });
+};
+
+function Document({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -16,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col justify-start">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -26,5 +40,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { data } = useLoaderData();
+  const links = data?.results[0]?.data?.navigation || [];
+
+  return (
+    <Document>
+      <Header links={links} />
+      <Outlet />
+    </Document>
+  );
 }
