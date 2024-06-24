@@ -30,7 +30,7 @@ function Document({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen flex flex-col justify-start">
+      <body className="min-h-screen w-full flex flex-col" id="root">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -46,7 +46,9 @@ export default function App() {
   return (
     <Document>
       <Header links={links} />
-      <Outlet />
+      <main className="flex-1 w-full flex flex-col items-center p-1 md:p-8 lg:p-12">
+        <Outlet />
+      </main>
     </Document>
   );
 }
