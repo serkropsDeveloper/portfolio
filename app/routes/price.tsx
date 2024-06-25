@@ -29,31 +29,35 @@ const Price = () => {
       {priceSlices.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col w-full justify-center items-center p-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw] border-b-2 border-black"
+          className="flex flex-col w-full justify-center items-center p-4 md:p-10 gap-4 md:max-w-[50vw] lg:max-w-[40vw] border-b-2 border-black"
         >
           <h2 className="text-xl md:text-3xl font-bold">
             {item.primary.title[0].text}
           </h2>
-          <ul className="flex flex-col gap-4 w-full">
-            {item.items.map((text) => (
-              <li className="text-md md:text-xl font-semibold">
-                {"- " + text.includes}
+          <div className="flex w-full justify-center">
+            <ul className="flex flex-col items-left gap-4">
+              {item.items.map((text, index) => (
+                <li key={index} className="text-md md:text-xl font-semibold">
+                  {"- " + text.includes}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+      <div className="flex flex-col jsutify-center items-center p-4 md:p-10 gap-4 md:max-w-[60vw] lg:max-w-[50vw]">
+        <h1 className="text-xl md:text-3xl font-bold">
+          {content.title[0].text}
+        </h1>
+        <div className="flex w-full justify-center">
+          <ul className="flex flex-col gap-4">
+            {additionalParts.map((item, index) => (
+              <li key={index} className="text-md md:text-xl font-semibold">
+                {"- " + item.part}
               </li>
             ))}
           </ul>
         </div>
-      ))}
-      <div className="flex flex-col jsutify-center items-center p-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw]">
-        <h1 className="text-xl md:text-3xl font-bold">
-          {content.title[0].text}
-        </h1>
-        <ul className="flex flex-col gap-4 w-full">
-          {additionalParts.map((item, index) => (
-            <li key={index} className="text-md md:text-xl font-semibold">
-              {"- " + item.part}
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

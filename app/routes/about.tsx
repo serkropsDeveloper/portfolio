@@ -29,20 +29,20 @@ const About = () => {
   // console.log(content);
 
   return (
-    <div className="flex flex-col min-h-[85vh] w-full justify-evenly items-center p-4">
-      <div className="flex flex-col md:flex-row gap-4 py-4 w-full justify-evenly items-center">
-        <h1 className="text-xl md:text-3xl lg:text-5xl font-bold hidden md:block">
+    <div className="flex flex-col min-h-[80vh] w-full justify-evenly items-center gap-2 pb-4 lg:p-0">
+      <div className="flex flex-col md:flex-row gap-4 py-4 w-full lg:max-w-[80%] justify-evenly items-center">
+        {/* <h1 className="text-xl md:text-3xl lg:text-5xl font-bold hidden md:block">
           {content.title[0]?.text}
-        </h1>
+        </h1> */}
         <img
-          src={content.image?.url || ""}
+          src={content.photo?.url || ""}
           alt="photo"
-          className="max-h-[600px] order-1 md:order-2"
+          className="max-w-[60%] md:max-w-[30%] order-1 md:order-2"
         />
+        <p className="text-lg md:text-xl lg:text-2xl font-semibold w-full md:max-w-[70vw] p-4 order-2 md:order-1">
+          {content.description}
+        </p>
       </div>
-      <p className="text-lg md:text-2xl font-semibold w-full md:max-w-[70vw]">
-        {content.description}
-      </p>
       <div className="flex flex-col justify-center items-center p-4 gap-6">
         <h2 className="text-xl font-semibold">Зв’язатись зі мною:</h2>
         {contacts && contacts[0] && (

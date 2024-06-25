@@ -32,7 +32,7 @@ export default function Index() {
         <h1 className="text-lg md:text-2xl lg:text-4xl font-bold md:p-3 text-center">
           {content.main_title[0].text}
         </h1>
-        <ol className="flex flex-col gap-4 w-full">
+        <ol className="flex flex-col gap-4 w-full lg:max-w-[70vw]">
           {content.stages_of_work.map((item, index) => (
             <li
               className="text-sm md:text-lg lg:text-xl font-semibold w-full text-left"
