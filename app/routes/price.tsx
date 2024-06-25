@@ -3,7 +3,11 @@ import { MetaFunction, json, useLoaderData } from "@remix-run/react";
 import { client } from "~/prismic-configuration";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "Price" }, { name: "description", content: "Price" }];
+  return [
+    { title: "Price" },
+    { name: "description", content: "Price" },
+    { rel: "icon", href: "/photo-camera.png", type: "image/png" },
+  ];
 };
 
 export const loader: LoaderFunction = async () => {
@@ -25,7 +29,7 @@ const Price = () => {
       {priceSlices.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col w-full justify-center items-center p-2 py-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw] border-b-2 border-black"
+          className="flex flex-col w-full justify-center items-center p-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw] border-b-2 border-black"
         >
           <h2 className="text-xl md:text-3xl font-bold">
             {item.primary.title[0].text}
@@ -39,7 +43,7 @@ const Price = () => {
           </ul>
         </div>
       ))}
-      <div className="flex flex-col jsutify-center items-center p-2 py-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw]">
+      <div className="flex flex-col jsutify-center items-center p-4 md:p-10 gap-4 md:max-w-[70vw] lg:max-w-[60vw]">
         <h1 className="text-xl md:text-3xl font-bold">
           {content.title[0].text}
         </h1>

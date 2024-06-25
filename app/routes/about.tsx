@@ -4,7 +4,11 @@ import { client } from "~/prismic-configuration";
 import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "About" }, { name: "description", content: "About" }];
+  return [
+    { title: "About" },
+    { name: "description", content: "About" },
+    { rel: "icon", href: "/photo-camera.png", type: "image/png" },
+  ];
 };
 
 export const loader: LoaderFunction = async () => {

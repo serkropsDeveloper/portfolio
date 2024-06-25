@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
+import { Link } from "@remix-run/react";
 
 const Header = ({ links }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,9 @@ const Header = ({ links }) => {
           : "flex flex-col items-center justify-center py-2 md:py-4 md:gap-4"
       } w-full gap-2 sticky top-0 bg-white shadow-lg shadow-neutral-900 z-20 duration-300 ease-in-out`}
     >
-      <h1 className="text-lg md:text-2xl lg:text-3xl">Logo</h1>
+      <Link to={"/"}>
+        <h1 className="text-lg md:text-2xl lg:text-3xl">Logo</h1>
+      </Link>
       <Navigation links={links} />
     </div>
   );

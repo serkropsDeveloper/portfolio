@@ -8,6 +8,7 @@ export const meta: MetaFunction = () => {
   return [
     { title: "Borys Dobryi" },
     { name: "description", content: "Portfolio" },
+    { rel: "icon", href: "/photo-camera.png", type: "image/png" },
   ];
 };
 
@@ -27,7 +28,7 @@ export default function Index() {
       <div className="flex w-full">
         <ImageSlider carousel={carousel} />
       </div>
-      <div className="flex flex-col justify-center items-center w-full p-2 md:p-4 gap-4">
+      <div className="flex flex-col justify-center items-center w-full p-4 gap-4">
         <h1 className="text-lg md:text-2xl lg:text-4xl font-bold md:p-3 text-center">
           {content.main_title[0].text}
         </h1>
