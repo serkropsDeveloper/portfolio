@@ -25,16 +25,18 @@ const About = () => {
   // console.log(content);
 
   return (
-    <div className="flex flex-col min-h-[85vh] justify-evenly items-center p-4">
-      <div className="flex w-full justify-evenly items-center">
-        <h1 className="text-5xl font-semibold">{content.title[0]?.text}</h1>
+    <div className="flex flex-col min-h-[85vh] w-full justify-evenly items-center p-4">
+      <div className="flex flex-col md:flex-row gap-4 py-4 w-full justify-evenly items-center">
+        <h1 className="text-xl md:text-3xl lg:text-5xl font-bold hidden md:block">
+          {content.title[0]?.text}
+        </h1>
         <img
           src={content.image?.url || ""}
           alt="photo"
-          className="max-h-[600px]"
+          className="max-h-[600px] order-1 md:order-2"
         />
       </div>
-      <p className="text-2xl font-semibold max-w-[70vw]">
+      <p className="text-lg md:text-2xl font-semibold w-full md:max-w-[70vw]">
         {content.description}
       </p>
       <div className="flex flex-col justify-center items-center p-4 gap-6">

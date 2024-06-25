@@ -46,7 +46,7 @@ export default function App() {
   return (
     <Document>
       <Header links={links} />
-      <main className="flex-1 w-full flex flex-col items-center p-1 md:p-8 lg:p-12">
+      <main className="flex-1 w-full flex flex-col items-center md:p-8 lg:p-12">
         <Outlet />
       </main>
     </Document>

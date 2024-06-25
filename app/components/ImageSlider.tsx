@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -24,7 +23,7 @@ const ImageSlider = ({ carousel }) => {
             <img
               src={image.carousel_image.url}
               alt={`Slide ${index}`}
-              className="max-w-full max-h-[50vh] md:max-h-[70vh] object-contain"
+              className="max-w-full max-h-[100vh] object-contain"
             />
           </div>
         </SwiperSlide>

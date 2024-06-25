@@ -4,7 +4,7 @@ const Navigation = ({ links }) => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-center gap-1 sm:gap-2 md:gap-4 w-full md:w-[80vw]">
+    <nav className="flex justify-evenly gap-1 sm:gap-2 md:gap-4 w-full md:w-[80vw]">
       {links.map(({ link, title }, index) => {
         const isActive = location.pathname === link;
 
