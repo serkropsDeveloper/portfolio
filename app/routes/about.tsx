@@ -37,7 +37,7 @@ const About = () => {
         <img
           src={content.photo?.url || ""}
           alt="photo"
-          className="max-w-[60%] md:max-w-[30%] order-1 md:order-2"
+          className="max-w-[60%] md:max-w-[25%] order-1 md:order-2"
         />
         <p className="text-lg md:text-xl lg:text-2xl font-semibold w-full md:max-w-[70vw] p-4 order-2 md:order-1">
           {content.description}
