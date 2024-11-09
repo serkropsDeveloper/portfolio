@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import { Link } from "@remix-run/react";
 
-const Header = ({ links }) => {
+const Header = ({ links, logo }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,11 +25,11 @@ const Header = ({ links }) => {
       className={`${
         isScrolled
           ? "flex items-center justify-evenly p-2"
-          : "flex flex-col items-center justify-center py-2 md:gap-4"
+          : "flex flex-col items-center justify-center md:gap-4"
       } w-full gap-2 sticky top-0 bg-white shadow-lg shadow-neutral-900 z-20 duration-300 ease-in-out`}
     >
       <Link to={"/"}>
-        <h1 className="text-lg md:text-2xl lg:text-3xl">Logo</h1>
+        <img src={logo.url} width="170px" height="60px" />
       </Link>
       <Navigation links={links} />
     </div>
