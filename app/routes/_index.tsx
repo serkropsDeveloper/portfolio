@@ -3,6 +3,7 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import ImageSlider from "~/components/ImageSlider";
+import ReviewsList from "~/components/ReviewsList";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,6 +23,8 @@ export default function Index() {
 
   const content = data.results[0].data;
   const carousel = content.carousel;
+  const reviewsTitle = data.results[0].data.reviews_title[0].text;
+  const reviews = data.results[0].data.reviews_group;
 
   return (
     <div className="w-full flex flex-col justify-center items-center md:px-4 md:py-10 gap-6">
@@ -43,8 +46,9 @@ export default function Index() {
           ))}
         </ol>
         <h1 className="text-lg md:text-2xl lg:text-4xl font-bold md:p-3 text-center">
-          Відгуки
+          {reviewsTitle}
         </h1>
+        <ReviewsList reviews={reviews} />
       </div>
     </div>
   );

@@ -18,7 +18,8 @@ export const links: LinksFunction = () => [
 
 export const loader: LoaderFunction = async () => {
   const response = await client.getByType("menu");
-  return json({ data: response });
+  const homePageData = await client.getByType("home_page");
+  return json({ data: response, homePageData: homePageData });
 };
 
 function Document({ children }: { children: React.ReactNode }) {
@@ -40,12 +41,13 @@ function Document({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const { data } = useLoaderData();
+  const { data, homePageData } = useLoaderData();
   const links = data?.results[0]?.data?.navigation || [];
+  const logo = homePageData.results[0].data.logo;
 
   return (
     <Document>
-      <Header links={links} />
+      <Header links={links} logo={logo} />
       <main className="flex-1 w-full flex flex-col items-center md:p-8 lg:p-0">
         <Outlet />
       </main>

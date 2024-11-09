@@ -26,11 +26,9 @@ const About = () => {
   const content = data.results[0].data;
   const contacts = content.contacts;
 
-  // console.log(content);
-
   return (
-    <div className="flex flex-col min-h-[80vh] w-full justify-evenly items-center gap-2 pb-4 lg:p-0">
-      <div className="flex flex-col md:flex-row gap-4 py-4 w-full lg:max-w-[80%] justify-evenly items-center">
+    <div className="flex flex-col h-auto w-full justify-evenly items-center gap-[20px] pb-4 lg:p-0">
+      <div className="flex flex-col md:flex-row gap-4 w-full lg:max-w-[80%] justify-evenly items-center">
         {/* <h1 className="text-xl md:text-3xl lg:text-5xl font-bold hidden md:block">
           {content.title[0]?.text}
         </h1> */}
@@ -53,7 +51,7 @@ const About = () => {
           </a>
         )}
       </div>
-      <div className="w-full flex justify-evenly items-center">
+      <div className="w-full h-auto flex justify-evenly items-center">
         {contacts && contacts[1] && (
           <a
             href={contacts[1].link}
